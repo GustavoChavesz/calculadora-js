@@ -4,13 +4,15 @@ let calculation = ""
 function onNumberClick(number) {
     calculation += number
 
-    resultText.innerText = calculation.replace("*", "x").replace("/", "÷")
+    resultText.innerText = calculation.replaceAll("*", "x").replaceAll("/", "÷")
 }
 
 function onOperatorClick(operator) {
-    calculation += " " + operator + " "
+    if (calculation[calculation.length - 2] != operator) {
+        calculation += " " + operator + " "
+    }
 
-    resultText.innerText = calculation.replace("*", "x").replace("/", "÷")
+    resultText.innerText = calculation.replaceAll("*", "x").replaceAll("/", "÷")
 }
 
 function onEqualClick() {
